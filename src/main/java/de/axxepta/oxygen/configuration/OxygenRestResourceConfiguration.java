@@ -18,7 +18,7 @@ public class OxygenRestResourceConfiguration extends ResourceConfig {
 
 	public OxygenRestResourceConfiguration(@Context ServiceLocator locator) {
 
-		setApplicationName("Oxygen Web Author rest services application");
+		setApplicationName("Oxygen Web Author REST services application");
 
 		packages(true, "de.axxepta.oxygen");
 
