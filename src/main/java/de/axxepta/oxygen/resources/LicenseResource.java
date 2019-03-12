@@ -1,4 +1,4 @@
-package de.axxepta.web.author.resouces;
+package de.axxepta.oxygen.resources;
 
 import java.io.IOException;
 import java.util.HashMap;
@@ -28,8 +28,9 @@ import de.axxepta.exceptions.ResponseException;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+
 import ro.sync.servlet.admin.RESTAdminLicense;
-/*
+
 @Path("license-services")
 public class LicenseResource {
 
@@ -45,10 +46,10 @@ public class LicenseResource {
 	private Meter metricRegistry;
 	
 	@Operation(summary = "get license", description = "Provide available license that are registered", 
-			method = "GET", operationId="#8_1")
+			method = "GET", operationId="#3_1")
 	@ApiResponses({ @ApiResponse(responseCode = "200", description = "license in JSON") })
 	@GET
-	@Path("get-register-license")
+	@Path("get-register-license-oxygen")
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getRegisterLicense() {
 		metricRegistry.mark();
@@ -68,11 +69,11 @@ public class LicenseResource {
 	}
 	
 	@Operation(summary = "Register license", description = "Set register license that was send as JSON", 
-			method = "PUT", operationId="#8_2")
+			method = "PUT", operationId="#3_2")
 	@ApiResponses({ @ApiResponse(responseCode = "200", description = "the license registration process went without error"),
 			@ApiResponse(responseCode = "409", description = "appear an error in license registration") })
 	@PUT
-	@Path("set-register-license")
+	@Path("set-register-license-oxygen")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.TEXT_PLAIN)
 	public Response setRegisterLicense(@QueryParam("license") String licenseInfo) throws ResponseException {
@@ -94,4 +95,4 @@ public class LicenseResource {
 		}	
 	}
 }
-*/
+

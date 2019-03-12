@@ -1,4 +1,4 @@
-package de.axxepta.services.interfaces;
+package de.axxepta.oxygen.services.interfaces;
 
 import java.util.List;
 

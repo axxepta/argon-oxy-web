@@ -1,4 +1,4 @@
-package de.axxepta.web.author.resouces;
+package de.axxepta.oxygen.resources;
 
 import java.io.UnsupportedEncodingException;
 import java.security.InvalidKeyException;
@@ -33,7 +33,7 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import de.axxepta.exceptions.ResponseException;
 import de.axxepta.models.UserAuthModel;
-import de.axxepta.services.interfaces.IAuthUserService;
+import de.axxepta.oxygen.services.interfaces.IAuthUserService;
 
 @Path("auth-services")
 @Service
@@ -243,4 +243,6 @@ public class AuthResource{
 			return Response.status(Status.ACCEPTED).entity("No user logged").build();
 		}
 	}
+	
 }
+

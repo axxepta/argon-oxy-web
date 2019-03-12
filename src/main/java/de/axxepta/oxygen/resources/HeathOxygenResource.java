@@ -1,4 +1,4 @@
-package de.axxepta.web.author.resouces;
+package de.axxepta.oxygen.resources;
 
 import java.io.File;
 import java.io.IOException;
@@ -31,7 +31,6 @@ import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
-
 import ro.sync.exml.workspace.api.PluginWorkspace;
 import ro.sync.exml.workspace.api.PluginWorkspaceProvider;
 import ro.sync.servlet.RESTStatus;
@@ -157,6 +156,9 @@ public class HeathOxygenResource {
 
 	}
 	
+	@Operation(summary = "Check security", description = "Get details about oxygen platform", method = "GET", operationId = "#1_5")
+	@ApiResponses({ @ApiResponse(responseCode = "200", description = "report about oxygen platform") })
+	@Path("check-from-sdk")
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response checkFromSDK() {
@@ -180,7 +182,7 @@ public class HeathOxygenResource {
 		return Response.status(Status.OK).entity(mapSettings).build();
 	}
 	
-	@Operation(summary = "Check property", description = "Return value of a property if exists", method = "GET", operationId = "#1_5")
+	@Operation(summary = "Check property", description = "Return value of a property if exists", method = "GET", operationId = "#1_6")
 	@ApiResponses({ @ApiResponse(responseCode = "200", description = "return value of property"),
 			@ApiResponse(responseCode = "204", description = "return value of property"),
 			@ApiResponse(responseCode = "400", description = "error in transmited name of property"),
@@ -219,4 +221,6 @@ public class HeathOxygenResource {
 
 		}
 	}
+	
 }
+

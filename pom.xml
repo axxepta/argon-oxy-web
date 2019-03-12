@@ -25,6 +25,7 @@
 
 	<properties>
 		<oxygen.sdk.version>20.1.0.3</oxygen.sdk.version>
+		<jersey.version>2.28</jersey.version>
 	</properties>
 
 	<dependencies>
@@ -33,19 +34,25 @@
 			<artifactId>RestServicesModule</artifactId>
 			<version>0.1-SNAPSHOT</version>
 			<classifier>classes</classifier>
-
 			<exclusions>
 				<exclusion>
 					<groupId>com.oxygenxml</groupId>
-					<artifactId>oxygen-webapp</artifactId>
+					<artifactId>oxygen-sdk</artifactId>
 				</exclusion>
+
 				<exclusion>
-					<groupId>com.oxygenxml</groupId>
-    				<artifactId>oxygen-sdk</artifactId>
+					<groupId>com.google.guava</groupId>
+					<artifactId>guava</artifactId>
 				</exclusion>
+
 				<exclusion>
-					<groupId>com.oxygenxml</groupId>
-					<artifactId>frameworks</artifactId>
+					<groupId>commons-beanutils</groupId>
+					<artifactId>commons-beanutils-core</artifactId>
+				</exclusion>
+
+				<exclusion>
+					<groupId>com.google.common</groupId>
+					<artifactId>*</artifactId>
 				</exclusion>
 			</exclusions>
 		</dependency>
@@ -55,6 +62,7 @@
 			<artifactId>oxygen-webapp</artifactId>
 			<version>${oxygen.sdk.version}</version>
 			<type>war</type>
+			<scope>runtime</scope>
 			<exclusions>
 				<exclusion>
 					<groupId>com.oxygenxml</groupId>
@@ -73,13 +81,43 @@
 					<groupId>com.oxygenxml</groupId>
 					<artifactId>frameworks</artifactId>
 				</exclusion>
+
+				<exclusion>
+					<groupId>org.jboss.resteasy</groupId>
+					<artifactId>resteasy-jaxrs</artifactId>
+				</exclusion>
+
 			</exclusions>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-jaxrs</artifactId>
+			<version>3.5.1.Final</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.jboss.resteasy</groupId>
+			<artifactId>resteasy-jsapi</artifactId>
+			<version>3.5.1.Final</version>
 		</dependency>
 
 		<dependency>
 			<groupId>org.apache.shiro</groupId>
 			<artifactId>shiro-ehcache</artifactId>
 			<version>1.4.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.shiro</groupId>
+			<artifactId>shiro-core</artifactId>
+			<version>1.4.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>commons-beanutils</groupId>
+			<artifactId>commons-beanutils</artifactId>
+			<version>1.9.3</version>
 		</dependency>
 
 	</dependencies>
@@ -91,35 +129,69 @@
 		<plugins>
 
 			<plugin>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>build-helper-maven-plugin</artifactId>
+				<version>1.7</version>
+				<executions>
+					<execution>
+						<id>add-source</id>
+						<phase>generate-sources</phase>
+						<goals>
+							<goal>add-source</goal>
+						</goals>
+						<configuration>
+							<sources>
+								<source>src/main/java</source>
+							</sources>
+						</configuration>
+					</execution>
+				</executions>
+			</plugin>
+			
+<!-- 
+			<plugin>
+				<groupId>org.glassfish.hk2</groupId>
+				<artifactId>hk2-inhabitant-generator</artifactId>
+				<version>2.5.0</version>
+				<executions>
+                    <execution>
+                        <goals>
+                            <goal>generate-inhabitants</goal>
+                        </goals>
+                    </execution>
+                </executions>
+			</plugin>
+-->
+
+			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-war-plugin</artifactId>
 				<version>3.2.2</version>
 				<configuration>
 					<failOnMissingWebXml>false</failOnMissingWebXml>
 					<outputFileNameMapping>@{artifactId}@@{dashClassifier?}@.@{extension}@</outputFileNameMapping>
+
+					<webXml>webapp/WEB-INF/web.xml</webXml>
+
 					<overlays>
-						<!-- Add the contents of the oxygen-webapp. -->
 						<overlay>
 							<groupId>com.oxygenxml</groupId>
 							<artifactId>oxygen-webapp</artifactId>
-
 							<excludes>
 								<exclude>WEB-INF/classes/ro/sync</exclude>
 								<exclude>WEB-INF/frameworks.zip</exclude>
 								<exclude>WEB-INF/options.zip</exclude>
 								<exclude>WEB-INF/plugins.zip</exclude>
 								<exclude>WEB-INF/lib/</exclude>
-
-								<packagingExcludes>
-									WEB-INF/lib/commons-logging-*.jar,
-									%regex[WEB-INF/lib/log4j-(?!over-slf4j).*.jar],
-
-								</packagingExcludes>
+								<exclude>*/log4j.properties</exclude>
+								<packagingExcludes> WEB-INF/lib/commons-logging-*.jar,
+									%regex[WEB-INF/lib/log4j-(?!over-slf4j).*.jar], </packagingExcludes>
 							</excludes>
 						</overlay>
 					</overlays>
 				</configuration>
 			</plugin>
+
 		</plugins>
 	</build>
 

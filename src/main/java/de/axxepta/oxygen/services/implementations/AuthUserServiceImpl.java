@@ -1,4 +1,4 @@
-package de.axxepta.services.implementations;
+package de.axxepta.oxygen.services.implementations;
 
 import java.io.File;
 import java.io.FileOutputStream;
@@ -33,11 +33,12 @@ import org.apache.shiro.session.mgt.DefaultSessionManager;
 import org.apache.shiro.session.mgt.eis.SessionDAO;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.util.ThreadContext;
+
 import org.apache.shiro.web.env.EnvironmentLoader;
 import org.apache.shiro.web.env.IniWebEnvironment;
 import org.jvnet.hk2.annotations.Service;
 
-import de.axxepta.services.interfaces.IAuthUserService;
+import de.axxepta.oxygen.services.interfaces.IAuthUserService;
 import de.axxepta.session.dao.implementations.SessionCacheDAOImpl;
 import ro.sync.auth.PropertiesRealmWithDefaultUsersFile;
 import ro.sync.ecss.extensions.api.webapp.license.UserInfo;

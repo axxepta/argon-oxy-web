@@ -1,4 +1,4 @@
-package de.axxepta.services.implementations;
+package de.axxepta.oxygen.services.implementations;
 
 import java.io.File;
 import java.util.List;
@@ -10,8 +10,9 @@ import org.apache.log4j.Logger;
 import org.jvnet.hk2.annotations.Service;
 
 import de.axxepta.models.PluginDescriptionModel;
-import de.axxepta.services.interfaces.IPluginService;
+import de.axxepta.oxygen.services.interfaces.IPluginService;
 import ro.sync.ecss.extensions.api.webapp.WebappAuthorDocumentFactory;
+
 import ro.sync.exml.plugin.Plugin;
 import ro.sync.exml.plugin.PluginDescriptor;
 import ro.sync.exml.plugin.PluginManager;
@@ -74,3 +75,4 @@ public class PluginServiceImpl implements IPluginService {
 		return pluginManager.getPlugins();
 	}
 }
+

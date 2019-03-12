@@ -22,7 +22,8 @@ import javax.servlet.http.HttpServletRequest;
 
 import org.apache.log4j.Logger;
 
-import de.axxepta.rest.configuration.ResourceBundleReader;
+import de.axxepta.properties.BuildResourceBinderReader;
+import de.axxepta.properties.ResourceBundleReader;
 import ro.sync.auth.CsrfFilter;
 
 @Singleton
@@ -37,14 +38,12 @@ public class SecurityFilter extends CsrfFilter {
 	public void loadRules() {
 
 		LOG.info("load rules for security filter");
-
+		
 		mapServicesAcceptedIP = new HashMap<>();
 
-		final String fileName = "ArgonServerConfig-OxygenWebAuthor";
-		final File fileConfig = new File(fileName);
-		final Locale locale = new Locale("en");
+		BuildResourceBinderReader resourceBundleReader = new BuildResourceBinderReader("ArgonServerConfig-OxygenWebAuthor");
 
-		ResourceBundleReader bundleReader = new ResourceBundleReader(fileConfig, locale);
+		ResourceBundleReader bundleReader = resourceBundleReader.getBundlerReader();
 
 		for (String key : bundleReader.getKeys()) {
 			if (key.contains("service")) {
@@ -59,6 +58,7 @@ public class SecurityFilter extends CsrfFilter {
 			}
 		}
 
+		LOG.info("Rules loaded " + mapServicesAcceptedIP.toString());
 		LOG.info("Number of rules loaded " + mapServicesAcceptedIP.size());
 
 	}
@@ -96,5 +96,5 @@ public class SecurityFilter extends CsrfFilter {
 		super.doFilter(request, response, chain);
 
 	}
-
+	
 }
