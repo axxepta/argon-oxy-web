@@ -54,6 +54,11 @@
 					<groupId>com.google.common</groupId>
 					<artifactId>*</artifactId>
 				</exclusion>
+
+				<exclusion>
+					<groupId>org.glassfish.hk2</groupId>
+					<artifactId>hk2-locator</artifactId>
+				</exclusion>
 			</exclusions>
 		</dependency>
 
@@ -120,6 +125,18 @@
 			<version>1.9.3</version>
 		</dependency>
 
+		<dependency>
+			<groupId>org.glassfish.hk2</groupId>
+			<artifactId>hk2-inhabitant-generator</artifactId>
+			<version>2.5.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>net.sagebits</groupId>
+			<artifactId>HK2Utilities</artifactId>
+			<version>1.5.2</version>
+		</dependency>
+
 	</dependencies>
 
 	<build>
@@ -147,21 +164,6 @@
 					</execution>
 				</executions>
 			</plugin>
-			
-<!-- 
-			<plugin>
-				<groupId>org.glassfish.hk2</groupId>
-				<artifactId>hk2-inhabitant-generator</artifactId>
-				<version>2.5.0</version>
-				<executions>
-                    <execution>
-                        <goals>
-                            <goal>generate-inhabitants</goal>
-                        </goals>
-                    </execution>
-                </executions>
-			</plugin>
--->
 
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>

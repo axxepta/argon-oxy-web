@@ -18,7 +18,6 @@ import ro.sync.exml.plugin.PluginDescriptor;
 import ro.sync.exml.plugin.PluginManager;
 import ro.sync.exml.plugin.PluginUtil;
 
-
 @Service(name = "PluginService")
 @Singleton
 public class PluginServiceImpl implements IPluginService {
