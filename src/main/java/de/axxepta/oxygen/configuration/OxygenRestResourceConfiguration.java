@@ -41,14 +41,14 @@ public class OxygenRestResourceConfiguration extends ResourceConfig {
 			LOG.error("IO EXception " + e.getMessage());
 		}
 
-		try {
+		/*try {
 			Class<?>[] classes = ac.getAnnotatedClasses();
 			for (Class<?> c : classes) {
 				LOG.info("Annotated class " + c.getName());
 			}
 		} catch (ClassNotFoundException e) {
 
-		}
+		}*/
 
 		try {
 			for (ActiveDescriptor<?> ad : ServiceLocatorUtilities.addClasses(serviceLocator, ac.getAnnotatedClasses())) {
