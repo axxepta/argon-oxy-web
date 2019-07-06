@@ -1,12 +1,10 @@
 package de.axxepta.filters;
 
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Locale;
 import java.util.Map;
 import java.util.stream.Collectors;
 
@@ -20,7 +18,8 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import de.axxepta.properties.BuildResourceBinderReader;
 import de.axxepta.properties.ResourceBundleReader;
@@ -30,7 +29,7 @@ import ro.sync.auth.CsrfFilter;
 @WebFilter(filterName = "FilterJersey", urlPatterns = { "/*" })
 public class SecurityFilter extends CsrfFilter {
 
-	private static final Logger LOG = Logger.getLogger(SecurityFilter.class);
+	private static final Logger LOG = LoggerFactory.getLogger(SecurityFilter.class);
 
 	private Map<String, List<String>> mapServicesAcceptedIP;
 	

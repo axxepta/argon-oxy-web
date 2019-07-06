@@ -18,7 +18,8 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.codahale.metrics.Meter;
 import com.fasterxml.jackson.core.type.TypeReference;
@@ -34,7 +35,7 @@ import ro.sync.servlet.admin.RESTAdminLicense;
 @Path("license-services")
 public class LicenseResource {
 
-	private static final Logger LOG = Logger.getLogger(LicenseResource.class);
+	private static final Logger LOG = LoggerFactory.getLogger(LicenseResource.class);
 	
 	@Context
 	private ResourceContext resourceContext;

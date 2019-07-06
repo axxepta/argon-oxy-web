@@ -59,6 +59,16 @@
 					<groupId>org.glassfish.hk2</groupId>
 					<artifactId>hk2-locator</artifactId>
 				</exclusion>
+				
+				<exclusion>
+					<groupId>log4j</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+				
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
 			</exclusions>
 		</dependency>
 
@@ -72,6 +82,16 @@
 				<exclusion>
 					<groupId>com.oxygenxml</groupId>
 					<artifactId>frameworks</artifactId>
+				</exclusion>
+				
+				<exclusion>
+					<groupId>log4j</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+				
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>*</artifactId>
 				</exclusion>
 			</exclusions>
 		</dependency>
@@ -92,6 +112,15 @@
 					<artifactId>resteasy-jaxrs</artifactId>
 				</exclusion>
 
+				<exclusion>
+					<groupId>log4j</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
+				
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>*</artifactId>
+				</exclusion>
 			</exclusions>
 		</dependency>
 

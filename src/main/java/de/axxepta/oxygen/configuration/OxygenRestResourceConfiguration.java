@@ -4,13 +4,14 @@ import java.io.IOException;
 
 import javax.ws.rs.core.Context;
 
-import org.apache.log4j.Logger;
 import org.glassfish.hk2.api.ActiveDescriptor;
 import org.glassfish.hk2.api.ServiceLocator;
 import org.glassfish.hk2.utilities.ServiceLocatorUtilities;
 import org.glassfish.jersey.media.multipart.MultiPartFeature;
 import org.glassfish.jersey.server.ResourceConfig;
 import org.jvnet.hk2.annotations.Service;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.jaxrs.xml.JacksonJaxbXMLProvider;
 
@@ -22,7 +23,7 @@ import net.sagebits.HK2Utilities.AnnotationReporter;
 
 public class OxygenRestResourceConfiguration extends ResourceConfig {
 
-	private static final Logger LOG = Logger.getLogger(OxygenRestResourceConfiguration.class);
+	private static final Logger LOG = LoggerFactory.getLogger(OxygenRestResourceConfiguration.class);
 
 	public OxygenRestResourceConfiguration(@Context ServiceLocator serviceLocator) {
 

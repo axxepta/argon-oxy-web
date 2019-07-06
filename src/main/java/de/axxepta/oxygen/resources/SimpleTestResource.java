@@ -9,14 +9,15 @@ import javax.ws.rs.core.Context;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 
-import org.apache.log4j.Logger;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.codahale.metrics.Meter;
 
 @Path("testing")
 public class SimpleTestResource {
 
-	private static final Logger LOG = Logger.getLogger(SimpleTestResource.class);
+	private static final Logger LOG = LoggerFactory.getLogger(SimpleTestResource.class);
 	
 	private Meter metricRegistry;
 

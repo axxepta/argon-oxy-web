@@ -19,8 +19,9 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
-import org.apache.log4j.Logger;
 import org.glassfish.jersey.server.ResourceConfig;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.codahale.metrics.Meter;
 
@@ -40,7 +41,7 @@ import ro.sync.servlet.util.SecurityUtil;
 @Path("health")
 public class HeathOxygenResource {
 
-	private static final Logger LOG = Logger.getLogger(HeathOxygenResource.class);
+	private static final Logger LOG = LoggerFactory.getLogger(HeathOxygenResource.class);
 	
 	@Inject
 	private Meter metricRegistry;

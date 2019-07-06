@@ -15,7 +15,6 @@ import javax.inject.Singleton;
 import javax.servlet.http.HttpServletRequest;
 import javax.ws.rs.core.Context;
 
-import org.apache.log4j.Logger;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
@@ -37,6 +36,8 @@ import org.apache.shiro.util.ThreadContext;
 import org.apache.shiro.web.env.EnvironmentLoader;
 import org.apache.shiro.web.env.IniWebEnvironment;
 import org.jvnet.hk2.annotations.Service;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import de.axxepta.oxygen.services.interfaces.IAuthUserService;
 import de.axxepta.session.dao.implementations.SessionCacheDAOImpl;
@@ -49,7 +50,7 @@ import ro.sync.ecss.extensions.api.webapp.license.UserManagerSingleton;
 @Singleton
 public class AuthUserServiceImpl implements IAuthUserService {
 
-	private static final Logger LOG = Logger.getLogger(AuthUserServiceImpl.class);
+	private static final Logger LOG = LoggerFactory.getLogger(AuthUserServiceImpl.class);
 
 	@Context
 	private HttpServletRequest request;

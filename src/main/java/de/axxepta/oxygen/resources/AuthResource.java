@@ -20,8 +20,9 @@ import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
 import javax.ws.rs.core.Response.Status;
 
-import org.apache.log4j.Logger;
 import org.jvnet.hk2.annotations.Service;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.codahale.metrics.Meter;
 
@@ -39,7 +40,8 @@ import de.axxepta.oxygen.services.interfaces.IAuthUserService;
 @Service
 public class AuthResource{
 
-	private static final Logger LOG = Logger.getLogger(AuthResource.class);
+	private static final Logger LOG = LoggerFactory.getLogger(AuthResource.class);
+	
 	private static final String KEY = "Argon Server KEY";
 
 	private EncryptAES encrypt;

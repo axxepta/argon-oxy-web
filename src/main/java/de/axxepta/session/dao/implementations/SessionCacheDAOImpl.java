@@ -11,10 +11,11 @@ import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 
-import org.apache.log4j.Logger;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.session.mgt.eis.CachingSessionDAO;
 import org.jetbrains.annotations.NotNull;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import de.axxepta.tools.SerializeObjectUtil;
 import jetbrains.exodus.ByteIterable;
@@ -37,7 +38,7 @@ public class SessionCacheDAOImpl extends CachingSessionDAO {
 
 	private final Store storeSession;
 
-	private static final Logger LOG = Logger.getLogger(SessionCacheDAOImpl.class);
+	private static final Logger LOG = LoggerFactory.getLogger(SessionCacheDAOImpl.class);
 
 	private static final String KEY_ENCRYPT = "Argon Server KEY";
 

@@ -6,8 +6,9 @@ import java.util.stream.Collectors;
 
 import javax.inject.Singleton;
 
-import org.apache.log4j.Logger;
 import org.jvnet.hk2.annotations.Service;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import de.axxepta.models.PluginDescriptionModel;
 import de.axxepta.oxygen.services.interfaces.IPluginService;
@@ -22,7 +23,7 @@ import ro.sync.exml.plugin.PluginUtil;
 @Singleton
 public class PluginServiceImpl implements IPluginService {
 
-	private static final Logger LOG = Logger.getLogger(PluginServiceImpl.class);
+	private static final Logger LOG = LoggerFactory.getLogger(PluginServiceImpl.class);
 
 	@Override
 	public String getPluginDefaultDirectory() {
